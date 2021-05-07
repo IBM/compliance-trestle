@@ -82,6 +82,18 @@ def test_partition_ast() -> None:
             False,
             False
         ),
+        (
+            pathlib.Path('tests/data/md/test_1_md_format/template.md'),
+            pathlib.Path('tests/data/md/test_1_md_format/bad_instance_bold_header.md'),
+            False,
+            False
+        ),
+        (
+            pathlib.Path('tests/data/md/test_1_md_format/bad_instance_bold_header.md'),
+            pathlib.Path('tests/data/md/test_1_md_format/template.md'),
+            False,
+            False
+        ),
     ]
 )
 def test_md_validator_pass(
@@ -183,6 +195,13 @@ def test_bad_file_path(tmp_path: pathlib.Path):
         }, {
             'hello': 1,
             'my-world': 2,
+        }, False), ({
+            'hello': 1,
+            'world': 2,
+        }, {
+            'hello': 1,
+            'world': 2,
+            'banana': 3,
         }, False)
     ]
 )
